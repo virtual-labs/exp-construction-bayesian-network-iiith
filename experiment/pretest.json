@@ -2,38 +2,85 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "This is a Sample Question 1?",
+      "question": "Can a Bayesian Network have cycles?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "Yes",
+        "b": "No",
+        "c": "Mostly",
+        "d": "Depends on the problem statement"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": "Based on how we construct, the graph would be directed acyclic, [Please refer: Artificial Intelligence: A Modern Approach, chapter: 14]",
+        "b": "Based on how we construct, the graph would be directed acyclic, [Please refer: Artificial Intelligence: A Modern Approach, chapter: 14]",
+        "c": "Based on how we construct, the graph would be directed acyclic, [Please refer: Artificial Intelligence: A Modern Approach, chapter: 14]",
+        "d": "Based on how we construct, the graph would be directed acyclic, [Please refer: Artificial Intelligence: A Modern Approach, chapter: 14]"
       },
-      "correctAnswer": "a",
+      "correctAnswer": "b",
       "difficulty": "beginner"
     },
     {
-      "question": "This is a Sample Question 2?",
+      "question": "In a directed graph how many parents can a node have?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "Atmost one",
+        "b": "Zero",
+        "c": "One",
+        "d": "None"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": "Depending on the problem statement we can have any number of parents for a given node ranging from 0 to n-1 where n is total number of nodes",
+        "b": "Depending on the problem statement we can have any number of parents for a given node ranging from 0 to n-1 where n is total number of nodes",
+        "c": "Depending on the problem statement we can have any number of parents for a given node ranging from 0 to n-1 where n is total number of nodes",
+        "d": "Depending on the problem statement we can have any number of parents for a given node ranging from 0 to n-1 where n is total number of nodes"
+      },
+      "correctAnswer": "d",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Can we guarantee that there is unique Bayesian Network for a given problem statement?",
+      "answers": {
+        "a": "Yes",
+        "b": "No"
+      },
+      "explanations": {
+        "a": "There can be multiple valid Bayesian Networks for a given problem statement",
+        "b": "There can be multiple valid Bayesian Networks for a given problem statement"
+      },
+      "correctAnswer": "b",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "What is full form of CPT in the context of Bayesian Network?",
+      "answers": {
+        "a": "Common Proficiency Test",
+        "b": "Charted Proficiency Test",
+        "c": "Conditional Probability Table",
+        "d": "Common Probability Table"
+      },
+      "explanations": {
+        "a": "CPT: Conditional Probability Table",
+        "b": "CPT: Conditional Probability Table",
+        "c": "CPT: Conditional Probability Table",
+        "d": "CPT: Conditional Probability Table"
       },
       "correctAnswer": "c",
       "difficulty": "beginner"
+    },
+    {
+      "question": "Which of the follwing are true?",
+      "answers": {
+        "a": "Bayesian Network can represent any full joint probability distribution",
+        "b": "The graph constructed is most optimal for all valid Bayesian Network",
+        "c": "The graph constructed is not always optimal for all valid Bayesian Network",
+        "d": "Both a and c"
+      },
+      "explanations": {
+        "a": "Bayesian Network can represent any full joint probability distribution",
+        "b": "The graph constructed is not always optimal for all valid Bayesian Network",
+        "c": "The graph constructed is not always optimal for all valid Bayesian Network",
+        "d": "The graph constructed is not always optimal for all valid Bayesian Network and Bayesian Network can represent any full joint probability distribution"
+      },
+      "correctAnswer": "d",
+      "difficulty": "intermediate"
     }
   ]
 }
