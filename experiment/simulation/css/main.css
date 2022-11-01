@@ -29,18 +29,7 @@
     pointer-events:none;
   }
   
-  .drag-drop {
-    display: inline-block;
-    position: absolute;
-    top: 0px;
-    width: 100px;
-    height: 100px;
-    border-radius: 0.75em;
-    border: 0.2rem solid rgb(98, 178, 235);
-    z-index: 1;
-    background-size: 100%;
-  }
-  
+
   .components-list {
     padding: 2% 5%;
     text-align: center;
@@ -97,14 +86,29 @@
     cursor: pointer;
   }
   
+  .drag-drop {
+    display: inline-block;
+    position: absolute;
+    top: 0px;
+    width: auto;
+    height: auto;
+    border-radius: 10em;
+    border: 0.1rem solid #17202A;
+    z-index: 1;
+    background-size: 100%;
+    font-weight: bold;
+  }
+  
+
   .component-button{
-    width: 80px;
-    height: 80px;
-    border-radius: 0.75em;
-    border: 0.2rem solid rgb(98, 178, 235);
+    width: auto;
+    height: auto;
+    padding: 20px 20px;
+    border-radius: 10em;
+    border: 0.1rem solid #17202A;
     margin: 0.5rem 0.5rem;
     font-weight: bold;
-    font-size: 0.8rem;
+    /* font-size: 0.8rem; */
     text-align: center;
     color: black;
     background-color: #29e;
@@ -159,11 +163,11 @@
   }
   
   .node{
-    background-color: #29e;
+    background-color: #E59866;
     background-repeat: no-repeat;
     background-position: center;
     text-align: center;
-    padding: 30px 0;
+    padding: 20px 20px;
     overflow: auto;
   }
   

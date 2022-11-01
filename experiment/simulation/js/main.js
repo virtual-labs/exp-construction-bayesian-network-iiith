@@ -50,7 +50,7 @@ export const connectNode = function () {
     
         jsPlumbInstance.connect({
           uuids: [fromEndpoint.uuid, toEndpoint.uuid],
-          paintStyle: { stroke: wireColours, strokeWidth: 4 },
+          paintStyle: { stroke: wireColours, strokeWidth: 2 },
           overlays: ["Arrow"],
         });
         let input = nodejs.nodes[fromEndpoint.elementId];
@@ -67,42 +67,56 @@ export const unbindEvent = () => {
 
 export function registerNode(id, node) {
     const element = document.getElementById(id);
+    // anchor: [0, 0.5, -1, 0, -7, 0],
     node.addInputPoints(
+
         jsPlumbInstance.addEndpoint(element, {
-          anchor: [0, 0.5, -1, 0, -7, 0],
+          
+          anchor: "AutoDefault",
           source: true,
           target: true,
           connectionsDetachable: false,
           uuid: "input:0:" + id,
         })
       );
-      node.addInputPoints(
-        jsPlumbInstance.addEndpoint(element, {
-          anchor: [0.5, 0.5, 0, 0, 0, -52],
-          source: true,
-          target: true,
-          connectionsDetachable: false,
-          uuid: "input:1:" + id,
-        })
-      );
-      node.addInputPoints(
-        jsPlumbInstance.addEndpoint(element, {
-          anchor: [1, 0.5, 1, 0, 7, 0],
-          source: true,
-          target: true,
-          connectionsDetachable: false,
-          uuid: "input:2:" + id,
-        })
-      );
-      node.addInputPoints(
-        jsPlumbInstance.addEndpoint(element, {
-          anchor: [0.5, 0.5, 0, 0, 0, 52],
-          source: true,
-          target: true,
-          connectionsDetachable: false,
-          uuid: "input:3:" + id,
-        })
-      );
+      // node.addInputPoints(
+
+      //   jsPlumbInstance.addEndpoint(element, {
+          
+      //     anchor:"AutoDefault",
+      //     source: true,
+      //     target: true,
+      //     connectionsDetachable: false,
+      //     uuid: "input:1:" + id,
+      //   })
+      // );
+      // node.addInputPoints(
+      //   jsPlumbInstance.addEndpoint(element, {
+      //     anchor: [0.5, 0.5, 0, 0, 0, -52],
+      //     source: true,
+      //     target: true,
+      //     connectionsDetachable: false,
+      //     uuid: "input:1:" + id,
+      //   })
+      // );
+      // node.addInputPoints(
+      //   jsPlumbInstance.addEndpoint(element, {
+      //     anchor: [1, 0.5, 1, 0, 7, 0],
+      //     source: true,
+      //     target: true,
+      //     connectionsDetachable: false,
+      //     uuid: "input:2:" + id,
+      //   })
+      // );
+      // node.addInputPoints(
+      //   jsPlumbInstance.addEndpoint(element, {
+      //     anchor: [0.5, 0.5, 0, 0, 0, 52],
+      //     source: true,
+      //     target: true,
+      //     connectionsDetachable: false,
+      //     uuid: "input:3:" + id,
+      //   })
+      // );
 }
   
 export function refreshWorkingArea() {
