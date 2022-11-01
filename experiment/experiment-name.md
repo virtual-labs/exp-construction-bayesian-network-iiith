@@ -1,3 +1,1 @@
-## Experiment name
-
-Construction of Bayesian Network
+## Construction of Bayesian Network
