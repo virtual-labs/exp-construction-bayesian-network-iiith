@@ -1,4 +1,4 @@
-### Link your theory in here
+### Theory
 
 ## Introduction
 Most real world application involve many random variables, which makes computation of probability hard. For answering any query in a domain we need to have joint probabilities of the random variables. Notice that defining joint probabilities for all the random variables is a tedious task(especially when there are large number of random variables). Bayesian Network is a way of expressing these complicated probabilities using compact structure, which requires us to define less number of probabilities.

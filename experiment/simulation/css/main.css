@@ -1,1 +1,186 @@
 /* You CSS goes in here */
+/* You CSS goes in here */
+
+.container {
+    margin-top: 1%;
+  }
+  
+  .column {
+    text-align: center;
+  }
+  
+  .window { z-index:20; }
+  .jtk-connector { z-index:4; }
+  .jtk-endpoint { z-index:5; }
+  .jtk-overlay { z-index:6; }
+  
+  /* disabling text selection */
+  body {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+  }
+  
+  text {
+    pointer-events:none;
+  }
+  
+  .drag-drop {
+    display: inline-block;
+    position: absolute;
+    top: 0px;
+    width: 100px;
+    height: 100px;
+    border-radius: 0.75em;
+    border: 0.2rem solid rgb(98, 178, 235);
+    z-index: 1;
+    background-size: 100%;
+  }
+  
+  .components-list {
+    padding: 2% 5%;
+    text-align: center;
+    height: 100%;
+    overflow-y: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: start;
+    justify-content: center;
+    padding: 10px;
+  }
+  
+  #circuit-board {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border: 0.2rem solid black;
+  }
+  
+  #working-area {
+    position: absolute;
+    width: 95%;
+    height: 95%;
+    margin: 2%;
+  }
+  
+  .menu {
+    width: 120px;
+    z-index: 1;
+    box-shadow: 0 4px 5px 3px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    position: fixed;
+    display: none;
+    transition: 0.2s display ease-in;
+  }
+  
+  .menu-options {
+    list-style: none;
+    padding: 10px 0;
+    z-index: 1;
+  }
+  
+  .menu-option {
+    font-weight: 500;
+    z-index: 1;
+    font-size: 14px;
+    padding: 10px 40px 10px 20px;
+  }
+  
+  .menu-option:hover {
+    background: rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+  }
+  
+  .component-button{
+    width: 80px;
+    height: 80px;
+    border-radius: 0.75em;
+    border: 0.2rem solid rgb(98, 178, 235);
+    margin: 0.5rem 0.5rem;
+    font-weight: bold;
+    font-size: 0.8rem;
+    text-align: center;
+    color: black;
+    background-color: #29e;
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow: auto;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .component-button {
+      width: 60px;
+      height: 60px;
+      background-size: 100%;
+    }
+  }
+  
+  .component-button::after {
+    display: block;
+    padding-bottom: 100%;
+  }
+  
+  .component-button:hover {
+    border: 0.2rem solid rgb(157, 210, 248);
+    cursor: pointer;
+  }
+  
+  
+  
+  .success-message {
+    font-size: 1.2rem;
+    color: rgb(31, 170, 31);
+    font-weight: bold;
+  }
+  
+  .failure-message {
+    font-size: 1.2rem;
+    color: rgb(228, 23, 23);
+    font-weight: bold;
+  }
+  
+  .highlight {
+    border:3px solid red;
+    box-shadow: 0 0 10px #719ECE;
+  }
+  
+  /* for dropping instruction box  */
+  
+  .instructions-box {
+    max-height: 70px;
+    overflow: hidden;
+    transition: all .5s ease;
+  }
+  
+  .node{
+    background-color: #29e;
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align: center;
+    padding: 30px 0;
+    overflow: auto;
+  }
+  
+  .success-message {
+    font-size: 1.2rem;
+    color: rgb(31, 170, 31);
+    font-weight: bold;
+  }
+  
+  .failure-message {
+    font-size: 1.2rem;
+    color: rgb(228, 23, 23);
+    font-weight: bold;
+  }
+  
+  .highlight {
+    border:3px solid red;
+    box-shadow: 0 0 10px #719ECE;
+  }
+  
