@@ -79,44 +79,6 @@ export function registerNode(id, node) {
           uuid: "input:0:" + id,
         })
       );
-      // node.addInputPoints(
-
-      //   jsPlumbInstance.addEndpoint(element, {
-          
-      //     anchor:"AutoDefault",
-      //     source: true,
-      //     target: true,
-      //     connectionsDetachable: false,
-      //     uuid: "input:1:" + id,
-      //   })
-      // );
-      // node.addInputPoints(
-      //   jsPlumbInstance.addEndpoint(element, {
-      //     anchor: [0.5, 0.5, 0, 0, 0, -52],
-      //     source: true,
-      //     target: true,
-      //     connectionsDetachable: false,
-      //     uuid: "input:1:" + id,
-      //   })
-      // );
-      // node.addInputPoints(
-      //   jsPlumbInstance.addEndpoint(element, {
-      //     anchor: [1, 0.5, 1, 0, 7, 0],
-      //     source: true,
-      //     target: true,
-      //     connectionsDetachable: false,
-      //     uuid: "input:2:" + id,
-      //   })
-      // );
-      // node.addInputPoints(
-      //   jsPlumbInstance.addEndpoint(element, {
-      //     anchor: [0.5, 0.5, 0, 0, 0, 52],
-      //     source: true,
-      //     target: true,
-      //     connectionsDetachable: false,
-      //     uuid: "input:3:" + id,
-      //   })
-      // );
 }
   
 export function refreshWorkingArea() {
