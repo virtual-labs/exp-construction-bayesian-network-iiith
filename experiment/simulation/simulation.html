@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Bayesian Network Construction: Practice</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.8-b/css/style.min.css">
+	<link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+		<!-- Your code goes here-->
+		<div class="container">
+			<div class="columns is-centered">
+				<div class="column is-one-quarter v-instruction-title">
+					Tasks
+				</div>
+			
+				<div class="column">
+					<div class="v-tabs">
+						<ul>
+							<li class="is-active" id="Domain1" onclick="changeTabs(event)">
+								<a>
+									Domain1
+								</a>
+							</li>
+							<li id="Domain2" onclick="changeTabs(event)">
+								<a>
+									Domain2
+								</a>
+							</li>
+							<li id="Domain3" onclick="changeTabs(event)">
+								<a>
+									Domain3
+								</a>
+							</li>
+							<li id="Domain4" onclick="changeTabs(event)">
+								<a>
+									Domain4
+								</a>
+							</li>
+							<li id="domain5" onclick="changeTabs(event)">
+								<a>
+									Domain5
+								</a>
+							</li>
+							<li id="Domain6" onclick="changeTabs(event)">
+								<a>
+									Domain6
+								</a>
+							</li>
+							<li id="Domain7" onclick="changeTabs(event)">
+								<a>
+									Domain7
+								</a>
+							</li>
+							<li id="Domain8" onclick="changeTabs(event)">
+								<a>
+									Domain8
+								</a>
+							</li>
+								<li  id="domain9" onclick="changeTabs(event)">
+								<a>
+									Domain9
+								</a>
+							</li>
+							<li id="Domain10" onclick="changeTabs(event)">
+								<a>
+									Domain10
+								</a>
+							</li>
+							
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div class="columns is-centered">
+				
+				<div class="column">
+					<div class="v-collapsible-instruction-container v-instruction-container">
+						<div class="v-collapsible is-size-5">
+							Domain Problem Statement
+						</div>
+						<div class="v-content" id="instruction-title" style="text-align: left; padding-left: 10%; padding-right: 10%;">
+							<b>Burglary Alarm</b>
+
+							<ul style="list-style: disc;">
+								 You have a new burglar alarm installed at home. It is fairly reliable at detecting a burglary, but also responds on occasion to minor earthquakes. (This example is due to Judea Pearl, a resident of Los Angeles—hence the acute interest in earthquakes.) You also have two neighbors, John and Mary, who have promised to call you at work when they hear the alarm. John nearly always calls when he hears the alarm, but sometimes confuses the telephone ringing with the alarm and calls then, too. Mary, on the other hand, likes rather loud music and often misses the alarm altogether. Given the evidence of who has or has not called, we would like to estimate the probability of a burglary.
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			
+		</div>
+
+		<div class="columns is-centered is-flex-direction-row is-flex-wrap-wrap is-align-content-start">
+		<div class="column is-2-desktop is-12-tablet is-12-mobile">
+			<div class="v-datalist-container" style="height:100%">
+				<div class="v-datalist-title">Components</div>
+				<div class="v-datalist-row components-list" id="toolbar">
+					<div class="component-button burglary" onclick="addNode(event)">Burglary</div>
+					<div class="component-button earthquake" onclick="addNode(event)">Earthquake</div>
+					<div class="component-button alarm" onclick="addNode(event)">Alarm</div>
+					<div class="component-button johncalls" onclick="addNode(event)">Johncalls</div>
+					<div class="component-button marycalls" onclick="addNode(event)">Marycalls</div>
+					<div class="component-button india" onclick="addNode(event)">India</div>
+					<div class="component-button olympics" onclick="addNode(event)">Olympics</div>
+				</div>
+			</div>
+		</div>
+		<div class="column is-7-desktop is-12-tablet is-12-mobile">
+			<div id="circuit-board">
+				<div id="working-area">
+				</div>
+			</div>
+		</div>
+		<div class="column is-3-desktop is-12-tablet is-12-mobile">
+			<div class="v-datalist-container components-list">
+				<div class="v-datalist-title">Information</div>
+				<div class="v-datalist-row">
+					<div id="result"></div>
+
+					<div class="v-collapsible-instruction-container v-instruction-container">
+						<div id="instruction-title" class="v-collapsible is-size-5">
+							General Instructions
+						</div>
+						<div class="v-content" style="text-align: left; padding-left: 10%; padding-right: 10%;">
+							<b>Instructions for using interface</b>
+
+							<ul style="list-style: disc;">
+								<li>Click on components on the left side to add them to the circuit board</li>
+								<li>Drag and drop components to move them around, connect them using lines by dragging your cursor from one endpoint to another.</li>
+								<li>You can delete components by right clicking on them and selecting the delete option.</li>
+								<li>Click on the "Simulate" button to simulate the circuit and see the output.</li>
+								<li>Click on the "Submit" button to submit the circuit once you think you have built the required circuit.</li>
+							</ul>
+						</div>
+					</div>
+					</br>
+					<div class="v-collapsible-instruction-container v-instruction-container">
+						<div id="instruction-title" class="v-collapsible is-size-5">
+							Hints
+						</div>
+						<div class="v-content" style="text-align: left; padding-left: 10%; padding-right: 10%;">
+							<b>These hints allow you to construct a valid Bayesian Network</b>
+
+							<ul style="list-style: disc;">
+								<li>Alarm setsoff when there is a burglary or ocassionally when there is a earthquake.</li>
+								<li>John, Mary calling depends on whether the alarm is ringing</li>
+								<li>Are you getting any additional information about John/Mary calling if you know the reason why alarm is ringing?</li>
+								<li>Not really, as John/ Mary give least attention to reason why alarm is ringing.</li>
+								<li>You can ignore listening to music and telephone ringing, we can embed their probabilities in the Mary/John calling itself.</li>
+							</ul>
+						</div>
+					</div>
+			
+					</br>
+					<button class="v-button" onclick="submitCircuit()">Submit</button>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="menu">
+		<ul class="menu-options">
+			<li class="menu-option">Delete</li>
+			<li class="menu-option">Cancel</li>
+		</ul>
+	</div>
+
+
+	<!-- Add JS at the bottom of HTML file --> 
+    <script src="js/jsplumb.bundle.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.8-b/js/script.js"></script>
+	<script type="module" src="js/main.js"></script>
+</body>
+</html>
