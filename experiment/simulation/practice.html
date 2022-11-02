@@ -12,6 +12,8 @@
 </head>
 
 <body>
+
+</div>
 		<!-- Your code goes here-->
 		<div class="container">
 			<div class="columns is-centered">
@@ -91,6 +93,16 @@
 		<div class="column is-7-desktop is-12-tablet is-12-mobile">
 			<div id="circuit-board">
 				<div id="working-area">
+					<div id="myModal"  class="modal">
+					  	<div  id = "alertmodal1" class="modal-content successmodal" >
+    						<span class="close">&times;</span>
+  						</div>
+						<div  id = "alertmodal2" class="modal-content failuremodal">
+    						<span class="close">&times;</span>
+    					
+  						</div>
+					</div>
+
 				</div>
 			</div>
 		</div>
@@ -111,8 +123,10 @@
 								<li>Click on components on the left side to add them to the circuit board</li>
 								<li>Drag and drop components to move them around, connect them using lines by dragging your cursor from one endpoint to another.</li>
 								<li>You can delete components by right clicking on them and selecting the delete option.</li>
-								<li>Click on the "Simulate" button to simulate the circuit and see the output.</li>
 								<li>Click on the "Submit" button to submit the circuit once you think you have built the required circuit.</li>
+								<li> Once you are done constructing correct graph, there are some missing entries in the CPT tables for some of the nodes (they are colored in yellow)</li>
+								<li>Tapping on notes you can see their CPT table being displayed towards right</li>
+								<li>Upon filling the missing values you can check your answer by clicking on "Check" button which is beneath table</li>
 							</ul>
 						</div>
 					</div>
@@ -124,7 +138,7 @@
 						<div class="v-content" style="text-align: left; padding-left: 10%; padding-right: 10%;">
 							<b>These hints allow you to construct a valid Bayesian Network</b>
 
-							<ul style="list-style: disc;">
+							<ul id = "hintsid" style="list-style: disc;">
 								<li>Alarm setsoff when there is a burglary or ocassionally when there is a earthquake.</li>
 								<li>John, Mary calling depends on whether the alarm is ringing</li>
 								<li>Are you getting any additional information about John/Mary calling if you know the reason why alarm is ringing?</li>
@@ -133,9 +147,18 @@
 							</ul>
 						</div>
 					</div>
-			
+
+					<div class="v-datalist-row">
+					<div id = "cpt" class="v-table-wrap">
+						
+					</div>
+				</div>
+
 					</br>
 					<button class="v-button" onclick="submitCircuit()">Submit</button>
+					</br>
+					</br>
+					<button class="v-button" id="finalbutton">Check (use after submitting sucessfully)</button>
 				</div>
 
 			</div>
@@ -148,6 +171,7 @@
 			<li class="menu-option">Cancel</li>
 		</ul>
 	</div>
+
 
 
 	<!-- Add JS at the bottom of HTML file --> 

@@ -50,6 +50,7 @@ function changeTabs(e) {
     connectNode();
     refreshWorkingArea();
     updateToolbar();
+    updateHints();
     updateInstructions();
     clearObservations();
     resize();
@@ -82,7 +83,7 @@ const updateInstructions = () => {
       title = `<b>Marks in an Examination</b>
       
       <ul style="list-style: disc;">
-      Imagine you apply for admission into a famous univeristy, most of the unviersities have a standard exam like CAT. Where the score/marks of the students are determined not only by how smart/inteligent you are but also on the level (difficulty level of the paper). So the score will consider both these factors into account. But the final admission will only depend on the score you get. Lets consider an example where a competitive exam is conducted multiple times (consider JEE Main, NEET, state engineering exams). They normalize the score based on the difficulty of the paper. But the final admission will only depend on the score you get. On contrast to aptitude score which only depends on how smart you are or on you IQ.
+      Imagine you apply for admission into a famous univeristy, most of the unviersities have a standard exam like CAT. Where the score/marks of the students are determined not only by how smart/inteligent you are but also on the level (difficulty level of the paper). So the score will consider both these factors into account. You cannot expect to get good marks when the paper difficulty is way above normal. On contrast to aptitude score which only depends on how smart you are or on you IQ.
       </ul>`;
     }
     else if (task === "Domain4"){
@@ -100,6 +101,42 @@ const updateInstructions = () => {
       </ul>`;
     }
     instructionBox.innerHTML = title;
+}
+
+function updateHints(){
+  let elem = "";
+  if(window.currentTab === "Domain1"){
+      elem = `<li>Alarm setsoff when there is a burglary or ocassionally when there is a earthquake.</li>
+      <li>John, Mary calling depends on whether the alarm is ringing</li>
+      <li>Are you getting any additional information about John/Mary calling if you know the reason why alarm is ringing?</li>
+      <li>Not really, as John/ Mary give least attention to reason why alarm is ringing.</li>
+      <li>You can ignore listening to music and telephone ringing, we can embed their probabilities in the Mary/John calling itself.</li>`
+  }
+  else if (window.currentTab === "Domain2"){
+      elem = `
+      <li> A computer can fail because of various reasons but two primary reasons are electricity failure and computer malfunction</li>
+      <li>But a light fails only because of electricity failure and possibly becae of some light malfunction</li>
+      <li>Notice that light failure has nothing to do with computer malfunctioning</li>`;
+  }
+  else if(window.currentTab === "Domain3"){
+    elem = `<li> Your score in an examination is dependent on how intelligent you are and also on how difficult the paper is</li> 
+    <li> You cannot write all questions even you are so intelligent</li>
+    <li> But your aptitude score only depends on the IQ and nothing else.</li>
+    `
+  }
+  else if(window.currentTab === "Domain4"){
+    elem = `<li> Rain depends on two factors  cloudiness, and the windspeed</li> 
+    <li> And a cricket match will most likely be afftected due to rain because of wet outfield</li>
+    `
+  }
+  else if(window.currentTab === "Domain5"){
+    elem = `<li>A player will be given Red card based on how harsh the tackle is</li>
+    <li>And also on if he already got any warnings (Yellow card) </li> 
+
+    `
+  }
+  
+  document.getElementById("hintsid").innerHTML = elem;
 }
 
 function updateToolbar() {
@@ -130,12 +167,11 @@ function updateToolbar() {
 
 
 function clearObservations() {
-    document.getElementById("table-body").innerHTML = "";
-    let head = "";
-  
-  
-    document.getElementById("table-head").innerHTML = head;
+    document.getElementById("cpt").innerHTML = "";
     document.getElementById("result").innerHTML = "";
+    const elel  = document.getElementById("finalbutton");
+    elel.innerText = "Check (use after sucessfully submitting)";
+    elel.onclick = function(){checkCPT();}; 
 }
 
 const circuitBoard = document.getElementById("circuit-board");
