@@ -130,12 +130,11 @@ function updateToolbar() {
 
 
 function clearObservations() {
-    document.getElementById("table-body").innerHTML = "";
-    let head = "";
-  
-  
-    document.getElementById("table-head").innerHTML = head;
+    document.getElementById("cpt").innerHTML = "";
     document.getElementById("result").innerHTML = "";
+    const elel  = document.getElementById("finalbutton");
+    elel.innerText = "Check (use after sucessfully submitting)";
+    elel.onclick = function(){checkCPT();}; 
 }
 
 const circuitBoard = document.getElementById("circuit-board");

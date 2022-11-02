@@ -29,12 +29,15 @@ export class Node {
         this.id = id;
     }
     addParent(node){
+        clearCPT();
         this.parents.push(node);
     }
     addInputPoints(input) {
+        clearCPT();
         this.inputPoints.push(input);
     }
     removeNode(node){
+        clearCPT();
         let index = this.parents.indexOf(node);
         if (index > -1){
             this.parents.splice(index, 1);
@@ -91,8 +94,25 @@ export class Node {
     }
 }
 
+function clearCPT(){
+    const cpttable = document.getElementById("cpt");
+    cpttable.innerText = "";
+    let node_list = nodes;
+    let adjlist = {};
+    for(let [key, value] of Object.entries(node_list)){
+        adjlist[value.name] = value;
+    }
+    for(let [key, value] of Object.entries(adjlist)){
+        const ele = document.getElementById(value.id);
+        ele.onclick = function(event) {};
+        const elel  = document.getElementById("finalbutton");
+        elel.innerText = "Check (use after submitting sucessfully)";
+        elel.onclick = function(){}; 
+    }   
+}
 
 function addNode(event) {
+    clearCPT();    
     const name = event.target.innerHTML.toUpperCase();
     const node = new Node(name);
     const component = node.generateComponent();
@@ -119,7 +139,7 @@ function addCPT(event) {
             <tbody id="table-body">
                     <tr>
                     <td>0.001</td>
-                    <td contenteditable='true'>?</td>
+                    <td>0.999</td>
                 </tr>
             </tbody>
         </table>`  
@@ -153,13 +173,13 @@ function addCPT(event) {
                 <td>F</td>
                 <td>T</td>
                 <td>0.29</td>
-                <td contenteditable='true'>?</td>
+                <td id="op2" contenteditable='true'>?</td>
                 </tr>
                 <tr>
                 <td>F</td>
                 <td>F</td>
                 <td>0.001</td>
-                <td contenteditable='true'>?</td>
+                <td>0.999</td>
                 </tr>
         </tbody>
     </table>`
@@ -318,7 +338,7 @@ function addCPT(event) {
                     <td>False</td>
                     <td>False</td>
                     <td>0.6</td>
-                    <td contenteditable='true'>?</td>
+                    <td id = "op3" contenteditable='true'>?</td>
                 </tr>
                 
                 
@@ -356,7 +376,7 @@ function addCPT(event) {
             <tbody id="table-body">
                     <tr>
                     <td>0.1</td>
-                    <td contenteditable='true'>?</td>
+                    <td id = "op4" contenteditable='true'>?</td>
                 </tr>
             </tbody>
         </table>` 
@@ -456,7 +476,7 @@ function addCPT(event) {
             <tbody id="table-body">
                     <tr>
                     <td>0.05</td>
-                    <td contenteditable='true'>?</td>
+                    <td id = "op5" contenteditable='true'>?</td>
                 </tr>
             </tbody>
         </table>` 
@@ -573,7 +593,7 @@ function addCPT(event) {
                     <td>True</td>
                     <td>True</td>
                     <td>0.9</td>
-                    <td contenteditable='true'>?</td>
+                    <td id = "op6" contenteditable='true'>?</td>
                 </tr>
                 <tr>
                     <td>True</td>
@@ -584,7 +604,7 @@ function addCPT(event) {
                 <tr>
                     <td>False</td>
                     <td>True</td>
-                    <td contenteditable='true'>?</td>
+                    <td id="op7" contenteditable='true'>?</td>
                     <td>0.5</td>
                 </tr>
                 <tr>
@@ -634,6 +654,7 @@ export function deleteElement(nodeid) {
     jsPlumbInstance.removeAllEndpoints(document.getElementById(node.id));
     jsPlumbInstance._removeElement(document.getElementById(node.id));
     let el = `<div class= "component-button ${node.name.toLowerCase()}" onclick="addNode(event)">${node.name.toUpperCase()}</div>`;
+    clearCPT();
     const toolb = document.getElementById("toolbar");
     toolb.insertAdjacentHTML("beforeend", el);
     for (let elem in nodes) {

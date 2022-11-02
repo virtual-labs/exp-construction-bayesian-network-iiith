@@ -77,7 +77,106 @@ export function domainValidator1() {
             const ele = document.getElementById(value.id);
             ele.onclick = function(event) {addCPT(event);};
         }
+        const elel  = document.getElementById("finalbutton");
+        elel.innerText = "Check";
+        elel.onclick = function(){checkCPT();}; 
         setTimeout(function () {result.innerHTML = "";}, 3000);
+    }
+}
+
+function successMessageCPT(){
+    var alertmodal = document.getElementById("alertmodal2");
+            alertmodal.innerText = "";
+            alertmodal.style.display = "none";
+
+            var modal = document.getElementById("myModal");
+            modal.style.display = "block";
+            alertmodal = document.getElementById("alertmodal1");
+            alertmodal.innerText = "The CPT Table is filled correctly";
+            alertmodal.style.display = "block";
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                  modal.style.display = "none";
+                }
+            }
+            console.log("Sucesss");
+}
+
+function errorMessageCPT(){
+    var alertmodal = document.getElementById("alertmodal1");
+    alertmodal.innerText = "";
+    alertmodal.style.display = "none";
+    var modal = document.getElementById("myModal");
+    modal.style.display = "block";
+    window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+    }
+    alertmodal = document.getElementById("alertmodal2");
+    alertmodal.innerText = "The CPT Table is filled incorrectly";
+    alertmodal.style.display = "block";
+    console.log("Failed");
+}
+
+function checkCPT(){
+    if(window.currentTab == "Domain1" ){
+        const el2 = document.getElementById("op2");
+        const vl2 = parseFloat(el2.innerText);
+        console.log(vl2);
+        if(vl2 == 0.71){
+            successMessageCPT();
+        }
+        else{
+            errorMessageCPT();
+        }
+    }
+    else if(window.currentTab == "Domain2"){
+        const el = document.getElementById("op3");
+        const vl = parseFloat(el.innerText);
+        // console.log(vl2);
+        if(vl == 0.4){
+            successMessageCPT();
+        }
+        else{
+            errorMessageCPT();
+        }
+    }
+    else if(window.currentTab == "Domain3"){
+        const el = document.getElementById("op4");
+        const vl = parseFloat(el.innerText);
+        // console.log(vl2);
+        if(vl == 0.9){
+            successMessageCPT();
+        }
+        else{
+            errorMessageCPT();
+        }
+    }
+    else if(window.currentTab == "Domain4"){
+        const el = document.getElementById("op5");
+        const vl = parseFloat(el.innerText);
+        // console.log(vl2);
+        if(vl == 0.95){
+            successMessageCPT();
+        }
+        else{
+            errorMessageCPT();
+        }
+    }
+    else if(window.currentTab == "Domain5"){
+        const el = document.getElementById("op6");
+        const ell = document.getElementById("op7");
+        const vl = parseFloat(el.innerText);
+        const vll = parseFloat(ell.innerText);
+        console.log(vl);
+        console.log(vll);
+        if(vl == 0.1 && vll== 0.5){
+            successMessageCPT();
+        }
+        else{
+            errorMessageCPT();
+        }
     }
 }
 
