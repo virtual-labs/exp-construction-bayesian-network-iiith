@@ -61,10 +61,22 @@ export function domainValidator1() {
     if (isCorrect) {
         result.innerHTML = "<span>&#10003;</span> Success";
         result.className = "success-message";
+        for(let [key, value] of Object.entries(adjlist)){
+            const ele = document.getElementById(value.id);
+            ele.onclick = function(event) {addCPT(event);};
+        }
         setTimeout(function () {result.innerHTML = "";}, 3000);
     } else {
         result.innerHTML = "<span>&#10007;</span> Fail";
         result.className = "failure-message";
+        // for(let [key, value] of Object.entries(adjlist)){
+        //     const ele = document.getElementById(value.id);
+        //     ele.onclick = function(event) {};
+        // }
+        for(let [key, value] of Object.entries(adjlist)){
+            const ele = document.getElementById(value.id);
+            ele.onclick = function(event) {addCPT(event);};
+        }
         setTimeout(function () {result.innerHTML = "";}, 3000);
     }
 }

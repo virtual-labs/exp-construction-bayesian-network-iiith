@@ -48,8 +48,7 @@ export class Node {
             window.scrollX + document.getElementById(id).getBoundingClientRect().left; // X
     }
     generateComponent(){
-        let component = `<div class= "drag-drop node ${this.name.toLowerCase()}" id= ${this.id}>${this.name.toUpperCase()} 
-        </div>`;
+        let component = `<div class= "drag-drop node ${this.name.toLowerCase()}" id= ${this.id}>${this.name.toUpperCase()}</div>`;
         return component;
     }
 
@@ -105,6 +104,505 @@ function addNode(event) {
 
 window.addNode = addNode;
 
+function addCPT(event) {
+    const name = event.target.innerHTML.toUpperCase();
+    const cpttable = document.getElementById("cpt");
+    if(name == "BURGLARY"){
+        cpttable.innerHTML = `<b>CPT Table</b>
+        <table class="table is-bordered is-fullwidth">
+            <thead id="table-head">
+                <tr>
+                    <th colspan="1">Burglary</th>
+                    <th colspan="1">No Burglary</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+                    <tr>
+                    <td>0.001</td>
+                    <td contenteditable='true'>?</td>
+                </tr>
+            </tbody>
+        </table>`  
+    }
+    else if (name == "ALARM"){
+    cpttable.innerHTML = `<b>CPT Table</b>
+    <table class="table is-bordered is-fullwidth">
+        <thead id="table-head">
+            <tr>
+                <th colspan="1">Burglary</th>
+                <th colspan="1">Earthquake</th>
+                <th colspan="1">Alarm</th>
+                <th colspan="1">No Alarm</th>
+                
+            </tr>
+        </thead>
+        <tbody id="table-body">
+                <tr>
+                <td>T</td>
+                <td>T</td>
+                <td>0.95</td>
+                <td>0.05</td>
+                </tr>
+                <tr>
+                <td>T</td>
+                <td>F</td>
+                <td>0.94</td>
+                <td>0.06</td>
+                </tr>
+                <tr>
+                <td>F</td>
+                <td>T</td>
+                <td>0.29</td>
+                <td contenteditable='true'>?</td>
+                </tr>
+                <tr>
+                <td>F</td>
+                <td>F</td>
+                <td>0.001</td>
+                <td contenteditable='true'>?</td>
+                </tr>
+        </tbody>
+    </table>`
+    }
+    else if(name == "EARTHQUAKE"){
+        cpttable.innerHTML = `<b>CPT Table</b>
+        <table class="table is-bordered is-fullwidth">
+            <thead id="table-head">
+                <tr>
+                    <th colspan="1">EARTHQUAKE</th>
+                    <th colspan="1">No EARTHQUAKE</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+                    <tr>
+                    <td>0.002</td>
+                    <td>0.998</td>
+                </tr>
+            </tbody>
+        </table>`   
+    }
+    else if(name == "MARYCALLS"){
+        cpttable.innerHTML = `<b>CPT Table</b>
+        <table class="table is-bordered is-fullwidth">
+            <thead id="table-head">
+                <tr>
+                    <th colspan="1">ALARM</th>
+                    <th colspan="1">MARYCALLS</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+                    <tr>
+                    <td>True</td>
+                    <td>0.7</td>
+                </tr>
+                <tr>
+                <td>False</td>
+                <td>0.3</td>
+            </tr>
+            
+            </tbody>
+        </table>`
+    }
+    else if(name == "JOHNCALLS"){
+        cpttable.innerHTML = `<b>CPT Table</b>
+        <table class="table is-bordered is-fullwidth">
+            <thead id="table-head">
+                <tr>
+                    <th colspan="1">ALARM</th>
+                    <th colspan="1">JOHNCALLS</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+                    <tr>
+                    <td>True</td>
+                    <td>0.9</td>
+                </tr>
+                <tr>
+                <td>False</td>
+                <td>0.1</td>
+            </tr>
+            
+            </tbody>
+        </table>`
+    }
+    else if (name == "ELECTRICITYFAILURE")
+    {
+        cpttable.innerHTML = `<b>CPT Table</b>
+        <table class="table is-bordered is-fullwidth">
+            <thead id="table-head">
+                <tr>
+                    <th colspan="1">Electricity Failure</th>
+                    <th colspan="1">No Electricity Failure</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+                    <tr>
+                    <td>0.02</td>
+                    <td>0.98</td>
+                </tr>
+            </tbody>
+        </table>` 
+    }
+    else if (name == "COMPUTERMALFUNCTION")
+    {
+        cpttable.innerHTML = `<b>CPT Table</b>
+        <table class="table is-bordered is-fullwidth">
+            <thead id="table-head">
+                <tr>
+                    <th colspan="1">Computer Malfunction</th>
+                    <th colspan="1">No Computer Malfunction</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+                    <tr>
+                    <td>0.1</td>
+                    <td>0.9</td>
+                </tr>
+            </tbody>
+        </table>` 
+    }
+    else if (name == "LIGHTFAILURE")
+    {
+        cpttable.innerHTML = `<b>CPT Table</b>
+        <table class="table is-bordered is-fullwidth">
+            <thead id="table-head">
+                <tr>
+                    <th colspan="1">Electricity Failure</th>
+                    <th colspan="1">Light Failure</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+                <tr>
+                    <td>True</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>False</td>
+                    <td>0.2</td>
+                </tr>
+            </tbody>
+        </table>` 
+    }
+    else if (name == "COMPUTERFAILURE")
+    {
+        cpttable.innerHTML = `<b>CPT Table</b>
+        <table class="table is-bordered is-fullwidth">
+            <thead id="table-head">
+                <tr>
+                    <th colspan="1">Electricity Failure</th>
+                    <th colspan="1">Computer Malfunction</th>
+                    <th colspan="1">Computer Failure</th>
+                    <th colspan="1">No Computer Failure</th>    
+                </tr>
+            </thead>
+            <tbody id="table-body">
+                <tr>
+                    <td>True</td>
+                    <td>True</td>
+                    <td>1</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>True</td>
+                    <td>False</td>
+                    <td>1</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>False</td>
+                    <td>True</td>
+                    <td>0.8</td>
+                    <td>0.2</td>
+                </tr>
+                <tr>
+                    <td>False</td>
+                    <td>False</td>
+                    <td>0.6</td>
+                    <td contenteditable='true'>?</td>
+                </tr>
+                
+                
+            </tbody>
+        </table>` 
+    }
+    else if (name == "EXAMDIFFICULTY")
+    {
+        cpttable.innerHTML = `<b>CPT Table</b>
+        <table class="table is-bordered is-fullwidth">
+            <thead id="table-head">
+                <tr>
+                    <th colspan="1">Exam Easy</th>
+                    <th colspan="1">Exam Difficult</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+                    <tr>
+                    <td>0.6</td>
+                    <td>0.4</td>
+                </tr>
+            </tbody>
+        </table>` 
+    }
+    else if (name == "IQ")
+    {
+        cpttable.innerHTML = `<b>CPT Table</b>
+        <table class="table is-bordered is-fullwidth">
+            <thead id="table-head">
+                <tr>
+                    <th colspan="1">High IQ</th>
+                    <th colspan="1">Low IQ</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+                    <tr>
+                    <td>0.1</td>
+                    <td contenteditable='true'>?</td>
+                </tr>
+            </tbody>
+        </table>` 
+    }
+    else if (name == "SCORE")
+    {
+        cpttable.innerHTML = `<b>CPT Table</b>
+        <table class="table is-bordered is-fullwidth">
+            <thead id="table-head">
+                <tr>
+                    <th colspan="1">Exam</th>
+                    <th colspan="1">IQ</th>
+                    <th colspan="1">High Score</th>
+                    <th colspan="1">Low Score</th>    
+                </tr>
+            </thead>
+            <tbody id="table-body">
+                <tr>
+                    <td>Difficult</td>
+                    <td>High</td>
+                    <td>0.8</td>
+                    <td>0.2</td>
+                </tr>
+                <tr>
+                    <td>Easy</td>
+                    <td>Low</td>
+                    <td>0.6</td>
+                    <td>0.4</td>
+                </tr>
+                <tr>
+                    <td>Easy</td>
+                    <td>High</td>
+                    <td>0.95</td>
+                    <td>0.05</td>
+                </tr>
+                <tr>
+                    <td>Difficult</td>
+                    <td>Low</td>
+                    <td>0.1</td>
+                    <td>0.9</td>
+                </tr>
+                
+                
+            </tbody>
+        </table>` 
+    }
+    else if (name == "APTITUDESCORE")
+    {
+        cpttable.innerHTML = `<b>CPT Table</b>
+        <table class="table is-bordered is-fullwidth">
+            <thead id="table-head">
+                <tr>
+                    <th colspan="1">IQ</th>
+                    <th colspan="1">High Aptitude score</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+                <tr>
+                    <td>Low</td>
+                    <td>0.2</td>
+                </tr>
+                <tr>
+                    <td>High</td>
+                    <td>0.9</td>
+                </tr>
+            </tbody>
+        </table>` 
+    }
+    else if (name == "WINDY")
+    {
+        cpttable.innerHTML = `<b>CPT Table</b>
+        <table class="table is-bordered is-fullwidth">
+            <thead id="table-head">
+                <tr>
+                    <th colspan="1">Windy</th>
+                    <th colspan="1">Not Windy</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+                    <tr>
+                    <td>0.1</td>
+                    <td>0.9</td>
+                </tr>
+            </tbody>
+        </table>` 
+    }
+    else if (name == "CLOUDY")
+    {
+        cpttable.innerHTML = `<b>CPT Table</b>
+        <table class="table is-bordered is-fullwidth">
+            <thead id="table-head">
+                <tr>
+                    <th colspan="1">Cloudy</th>
+                    <th colspan="1">Not Cloudy</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+                    <tr>
+                    <td>0.05</td>
+                    <td contenteditable='true'>?</td>
+                </tr>
+            </tbody>
+        </table>` 
+    }
+    else if (name == "RAIN")
+    {
+        cpttable.innerHTML = `<b>CPT Table</b>
+        <table class="table is-bordered is-fullwidth">
+            <thead id="table-head">
+                <tr>
+                    <th colspan="1">Windy</th>
+                    <th colspan="1">Cloudy</th>
+                    <th colspan="1">Rain</th>
+                    <th colspan="1">No Rain</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+                <tr>
+                    <td>True</td>
+                    <td>True</td>
+                    <td>0.8</td>
+                    <td>0.2</td>
+                </tr>
+                <tr>
+                    <td>True</td>
+                    <td>False</td>
+                    <td>0.6</td>
+                    <td>0.4</td>
+                </tr>
+                <tr>
+                    <td>False</td>
+                    <td>True</td>
+                    <td>0.75</td>
+                    <td>0.25</td>
+                </tr>
+                <tr>
+                    <td>False</td>
+                    <td>False</td>
+                    <td>0.1</td>
+                    <td>0.9</td>
+                </tr>
+                
+            </tbody>
+        </table>` 
+    }
+    else if (name == "MATCH")
+    {
+        cpttable.innerHTML = `<b>CPT Table</b>
+        <table class="table is-bordered is-fullwidth">
+            <thead id="table-head">
+                <tr>
+                    <th colspan="1">Rain</th>
+                    <th colspan="1">Match</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+                <tr>
+                    <td>Yes</td>
+                    <td>0.3</td>
+                </tr>
+                <tr>
+                    <td>No</td>
+                    <td>0.9</td>
+                </tr>
+            </tbody>
+        </table>` 
+    }
+    else if (name == "HARSHTACKLE")
+    {
+        cpttable.innerHTML = `<b>CPT Table</b>
+        <table class="table is-bordered is-fullwidth">
+            <thead id="table-head">
+                <tr>
+                    <th colspan="1">Harsh Tackle</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+                    <tr>
+                    <td>0.2</td>
+                </tr>
+            </tbody>
+        </table>` 
+    }
+    else if (name == "YELLOWCARD")
+    {
+        cpttable.innerHTML = `<b>CPT Table</b>
+        <table class="table is-bordered is-fullwidth">
+            <thead id="table-head">
+                <tr>
+                    <th colspan="1">Yellow Card</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+                    <tr>
+                    <td>0.34</td>
+                </tr>
+            </tbody>
+        </table>` 
+    }
+    else if (name == "REDCARD")
+    {
+        cpttable.innerHTML = `<b>CPT Table</b>
+        <table class="table is-bordered is-fullwidth">
+            <thead id="table-head">
+                <tr>
+                    <th colspan="1">Harsh Tackle</th>
+                    <th colspan="1">Yellow Card</th>
+                    <th colspan="1">Red Card</th>
+                    <th colspan="1">No Red Card</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+                <tr>
+                    <td>True</td>
+                    <td>True</td>
+                    <td>0.9</td>
+                    <td contenteditable='true'>?</td>
+                </tr>
+                <tr>
+                    <td>True</td>
+                    <td>False</td>
+                    <td>0.7</td>
+                    <td>0.3</td>
+                </tr>
+                <tr>
+                    <td>False</td>
+                    <td>True</td>
+                    <td contenteditable='true'>?</td>
+                    <td>0.5</td>
+                </tr>
+                <tr>
+                    <td>False</td>
+                    <td>False</td>
+                    <td>0.1</td>
+                    <td>0.9</td>
+                </tr>
+                
+            </tbody>
+        </table>` 
+    }
+}
+
+window.addCPT = addCPT;
+
+
+
 export function clearResult() {
     const result = document.getElementById("result");
     result.innerHTML = "";
@@ -127,7 +625,7 @@ export function submitCircuit() {
     if(window.currentTab == "Domain1")
     domainValidator1();
     else
-    domainValidator2();
+    domainValidator1();
 }
 window.submitCircuit = submitCircuit;
 
@@ -140,7 +638,7 @@ export function deleteElement(nodeid) {
     toolb.insertAdjacentHTML("beforeend", el);
     for (let elem in nodes) {
         if (nodes[elem].parents.includes(node)) {
-            nodes[elem].removeInput(node);
+            nodes[elem].removeNode(node);
         }
     }
     delete nodes[nodeid];

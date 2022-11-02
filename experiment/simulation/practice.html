@@ -111,8 +111,10 @@
 								<li>Click on components on the left side to add them to the circuit board</li>
 								<li>Drag and drop components to move them around, connect them using lines by dragging your cursor from one endpoint to another.</li>
 								<li>You can delete components by right clicking on them and selecting the delete option.</li>
-								<li>Click on the "Simulate" button to simulate the circuit and see the output.</li>
 								<li>Click on the "Submit" button to submit the circuit once you think you have built the required circuit.</li>
+								<li> Once you are done constructing correct graph, there are some missing entries in the CPT tables for some of the nodes (they are colored in orange)</li>
+								<li>Tapping on notes you can see their CPT table being displayed towards right</li>
+								<li>Upon filling the missing values you can check your answer by clicking on "Check" button which is beneath table</li>
 							</ul>
 						</div>
 					</div>
@@ -133,9 +135,18 @@
 							</ul>
 						</div>
 					</div>
-			
+
+					<div class="v-datalist-row">
+					<div id = "cpt" class="v-table-wrap">
+						
+					</div>
+				</div>
+
 					</br>
 					<button class="v-button" onclick="submitCircuit()">Submit</button>
+					</br>
+					</br>
+					<button class="v-button" id="finalbutton">Check (use after submitting sucessfully)</button>
 				</div>
 
 			</div>
@@ -148,6 +159,7 @@
 			<li class="menu-option">Cancel</li>
 		</ul>
 	</div>
+
 
 
 	<!-- Add JS at the bottom of HTML file --> 
