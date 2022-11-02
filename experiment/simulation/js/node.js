@@ -37,7 +37,6 @@ export class Node {
         this.inputPoints.push(input);
     }
     removeNode(node){
-        clearCPT();
         let index = this.parents.indexOf(node);
         if (index > -1){
             this.parents.splice(index, 1);
@@ -104,11 +103,11 @@ function clearCPT(){
     }
     for(let [key, value] of Object.entries(adjlist)){
         const ele = document.getElementById(value.id);
-        ele.onclick = function(event) {};
-        const elel  = document.getElementById("finalbutton");
-        elel.innerText = "Check (use after submitting sucessfully)";
-        elel.onclick = function(){}; 
+        ele.onclick = function(){};
     }   
+    const elel  = document.getElementById("finalbutton");
+    elel.innerText = "Check (use after submitting sucessfully)";
+    elel.onclick = function(){}; 
 }
 
 function addNode(event) {

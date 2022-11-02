@@ -83,22 +83,36 @@ export function domainValidator1() {
     for(let [key, value] of Object.entries(node_list)){
         adjlist[value.name] = value;
     }
-    let edges = {"alarm": ["earthquake", "burglary"], "earthquake": [], "burglary": [], "johncalls": ["alarm"], "marycalls": ["alarm"] };
-    let spcedges = {"india": [], "olympics": []};
+    let edges = {};
+    let spcedges = {};
+    if(window.currentTab === "Domain2"){
+        edges = {"electricityfailure": [], "computermalfunction": [], "lightfailure": ["electricityfailure"], "computerfailure": ["electricityfailure", "computermalfunction"]};
+        spcedges = {"india": [], "olympics": [], "earthquake": []}; 
+    }
+    else if(window.currentTab === "Domain1"){
+        edges = {"alarm": ["earthquake", "burglary"], "earthquake": [], "burglary": [], "johncalls": ["alarm"], "marycalls": ["alarm"] };
+        spcedges = {"india": [], "olympics": []}; 
+    }
+    else if(window.currentTab === "Domain3"){
+        edges = {"examdifficulty": [], "iq": [], "score": ["iq", "examdifficulty"], "aptitudescore": ["iq"]};
+        spcedges = {"worldcup": [], "hallticket": []}; 
+    }
+    else if(window.currentTab === "Domain4"){
+        edges = {"windy": [], "cloudy": [], "rain": ["cloudy", "windy"], "match": ["rain"]};
+        spcedges = {"worldcup": [], "hallticket": []}; 
+    }
+    else if(window.currentTab === "Domain5"){
+        edges = {"yellowcard": [], "harshtackle": [], "redcard": ["yellowcard", "harshtackle"]};
+        spcedges = {"worldcup": [], "hallticket": [], "bluecard": []}; 
+    }
+    
+
     for(let [key, value] of Object.entries(edges) ){
         isCorrect = checkConstraints(adjlist, key, value, isCorrect);
     } 
     for(let [key, value] of Object.entries(spcedges) ){
         isCorrect = checkConstraints(adjlist, key, value, isCorrect, 1);
-    } 
-    
-    // isCorrect = checkConstraints(adjlist, "alarm", ["earthquake", "burglary"], isCorrect);
-    // isCorrect = checkConstraints(adjlist, "earthquake", [], isCorrect);
-    // isCorrect = checkConstraints(adjlist, "burglary", [], isCorrect);
-    // isCorrect = checkConstraints(adjlist, "johncalls", ["alarm"], isCorrect);
-    // isCorrect = checkConstraints(adjlist, "marycalls", ["alarm"], isCorrect);
-    // isCorrect = checkConstraints(adjlist, "india", [], isCorrect, 1);
-    // isCorrect = checkConstraints(adjlist, "olympics", [], isCorrect, 1);
+    }
     
     const result = document.getElementById("result");
 
@@ -114,6 +128,24 @@ export function domainValidator1() {
         const elel  = document.getElementById("finalbutton");
         elel.innerText = "Check";
         elel.onclick = function(){checkCPT();};
+        let eeel;
+        if(window.currentTab === "Domain1"){
+            eeel = document.getElementById(adjlist["ALARM"].id);
+        }
+        if(window.currentTab === "Domain2"){
+            eeel = document.getElementById(adjlist["COMPUTERFAILURE"].id);
+        }
+        if(window.currentTab === "Domain3"){
+            eeel = document.getElementById(adjlist["IQ"].id);
+        }
+        if(window.currentTab === "Domain4"){
+            eeel = document.getElementById(adjlist["CLOUDY"].id);
+        }
+        if(window.currentTab === "Domain5"){
+            eeel = document.getElementById(adjlist["REDCARD"].id);
+        }
+        eeel.style.backgroundColor = "#FFA500";
+
         setTimeout(function () {result.innerHTML = "";}, 3000);
     } else {
         result.innerHTML = "<span>&#10007;</span> Fail";
