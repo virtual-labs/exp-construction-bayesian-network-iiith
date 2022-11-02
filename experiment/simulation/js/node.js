@@ -128,7 +128,7 @@ function addCPT(event) {
     const name = event.target.innerHTML.toUpperCase();
     const cpttable = document.getElementById("cpt");
     if(name == "BURGLARY"){
-        cpttable.innerHTML = `<b>CPT Table</b>
+        cpttable.innerHTML = `<b>CPT Table (BURGLARY)</b>
         <table class="table is-bordered is-fullwidth">
             <thead id="table-head">
                 <tr>
@@ -145,7 +145,7 @@ function addCPT(event) {
         </table>`  
     }
     else if (name == "ALARM"){
-    cpttable.innerHTML = `<b>CPT Table</b>
+    cpttable.innerHTML = `<b>CPT Table (ALARM)</b>
     <table class="table is-bordered is-fullwidth">
         <thead id="table-head">
             <tr>
@@ -185,7 +185,7 @@ function addCPT(event) {
     </table>`
     }
     else if(name == "EARTHQUAKE"){
-        cpttable.innerHTML = `<b>CPT Table</b>
+        cpttable.innerHTML = `<b>CPT Table (EARTHQUAKE)</b>
         <table class="table is-bordered is-fullwidth">
             <thead id="table-head">
                 <tr>
@@ -202,7 +202,7 @@ function addCPT(event) {
         </table>`   
     }
     else if(name == "MARYCALLS"){
-        cpttable.innerHTML = `<b>CPT Table</b>
+        cpttable.innerHTML = `<b>CPT Table (MARYCALLS)</b>
         <table class="table is-bordered is-fullwidth">
             <thead id="table-head">
                 <tr>
@@ -224,7 +224,7 @@ function addCPT(event) {
         </table>`
     }
     else if(name == "JOHNCALLS"){
-        cpttable.innerHTML = `<b>CPT Table</b>
+        cpttable.innerHTML = `<b>CPT Table (JOHNCALLS)</b>
         <table class="table is-bordered is-fullwidth">
             <thead id="table-head">
                 <tr>
@@ -247,7 +247,7 @@ function addCPT(event) {
     }
     else if (name == "ELECTRICITYFAILURE")
     {
-        cpttable.innerHTML = `<b>CPT Table</b>
+        cpttable.innerHTML = `<b>CPT Table (ELECTRICITYFAILURE)</b>
         <table class="table is-bordered is-fullwidth">
             <thead id="table-head">
                 <tr>
@@ -265,7 +265,7 @@ function addCPT(event) {
     }
     else if (name == "COMPUTERMALFUNCTION")
     {
-        cpttable.innerHTML = `<b>CPT Table</b>
+        cpttable.innerHTML = `<b>CPT Table (COMPUTERMALFUNCTION)</b>
         <table class="table is-bordered is-fullwidth">
             <thead id="table-head">
                 <tr>
@@ -283,7 +283,7 @@ function addCPT(event) {
     }
     else if (name == "LIGHTFAILURE")
     {
-        cpttable.innerHTML = `<b>CPT Table</b>
+        cpttable.innerHTML = `<b>CPT Table (LIGHTFAILURE)</b>
         <table class="table is-bordered is-fullwidth">
             <thead id="table-head">
                 <tr>
@@ -305,7 +305,7 @@ function addCPT(event) {
     }
     else if (name == "COMPUTERFAILURE")
     {
-        cpttable.innerHTML = `<b>CPT Table</b>
+        cpttable.innerHTML = `<b>CPT Table (COMPUTERFAILURE)</b>
         <table class="table is-bordered is-fullwidth">
             <thead id="table-head">
                 <tr>
@@ -347,7 +347,7 @@ function addCPT(event) {
     }
     else if (name == "EXAMDIFFICULTY")
     {
-        cpttable.innerHTML = `<b>CPT Table</b>
+        cpttable.innerHTML = `<b>CPT Table (EXAMDIFFICULTY)</b>
         <table class="table is-bordered is-fullwidth">
             <thead id="table-head">
                 <tr>
@@ -365,7 +365,7 @@ function addCPT(event) {
     }
     else if (name == "IQ")
     {
-        cpttable.innerHTML = `<b>CPT Table</b>
+        cpttable.innerHTML = `<b>CPT Table (IQ)</b>
         <table class="table is-bordered is-fullwidth">
             <thead id="table-head">
                 <tr>
@@ -383,7 +383,7 @@ function addCPT(event) {
     }
     else if (name == "SCORE")
     {
-        cpttable.innerHTML = `<b>CPT Table</b>
+        cpttable.innerHTML = `<b>CPT Table (SCORE)</b>
         <table class="table is-bordered is-fullwidth">
             <thead id="table-head">
                 <tr>
@@ -425,7 +425,7 @@ function addCPT(event) {
     }
     else if (name == "APTITUDESCORE")
     {
-        cpttable.innerHTML = `<b>CPT Table</b>
+        cpttable.innerHTML = `<b>CPT Table (APTITUDESCORE)</b>
         <table class="table is-bordered is-fullwidth">
             <thead id="table-head">
                 <tr>
@@ -447,7 +447,7 @@ function addCPT(event) {
     }
     else if (name == "WINDY")
     {
-        cpttable.innerHTML = `<b>CPT Table</b>
+        cpttable.innerHTML = `<b>CPT Table (WINDY)</b>
         <table class="table is-bordered is-fullwidth">
             <thead id="table-head">
                 <tr>
@@ -465,7 +465,7 @@ function addCPT(event) {
     }
     else if (name == "CLOUDY")
     {
-        cpttable.innerHTML = `<b>CPT Table</b>
+        cpttable.innerHTML = `<b>CPT Table (CLOUDY)</b>
         <table class="table is-bordered is-fullwidth">
             <thead id="table-head">
                 <tr>
@@ -483,7 +483,7 @@ function addCPT(event) {
     }
     else if (name == "RAIN")
     {
-        cpttable.innerHTML = `<b>CPT Table</b>
+        cpttable.innerHTML = `<b>CPT Table (RAIN)</b>
         <table class="table is-bordered is-fullwidth">
             <thead id="table-head">
                 <tr>
@@ -524,7 +524,7 @@ function addCPT(event) {
     }
     else if (name == "MATCH")
     {
-        cpttable.innerHTML = `<b>CPT Table</b>
+        cpttable.innerHTML = `<b>CPT Table (MATCH)</b>
         <table class="table is-bordered is-fullwidth">
             <thead id="table-head">
                 <tr>
@@ -546,7 +546,7 @@ function addCPT(event) {
     }
     else if (name == "HARSHTACKLE")
     {
-        cpttable.innerHTML = `<b>CPT Table</b>
+        cpttable.innerHTML = `<b>CPT Table (HARSHTACKLE)</b>
         <table class="table is-bordered is-fullwidth">
             <thead id="table-head">
                 <tr>
@@ -562,7 +562,7 @@ function addCPT(event) {
     }
     else if (name == "YELLOWCARD")
     {
-        cpttable.innerHTML = `<b>CPT Table</b>
+        cpttable.innerHTML = `<b>CPT Table (YELLOWCARD)</b>
         <table class="table is-bordered is-fullwidth">
             <thead id="table-head">
                 <tr>
@@ -578,7 +578,7 @@ function addCPT(event) {
     }
     else if (name == "REDCARD")
     {
-        cpttable.innerHTML = `<b>CPT Table</b>
+        cpttable.innerHTML = `<b>CPT Table (REDCARD)</b>
         <table class="table is-bordered is-fullwidth">
             <thead id="table-head">
                 <tr>
@@ -651,10 +651,10 @@ window.submitCircuit = submitCircuit;
 
 export function deleteElement(nodeid) {
     let node = nodes[nodeid];
+    clearCPT();
     jsPlumbInstance.removeAllEndpoints(document.getElementById(node.id));
     jsPlumbInstance._removeElement(document.getElementById(node.id));
     let el = `<div class= "component-button ${node.name.toLowerCase()}" onclick="addNode(event)">${node.name.toUpperCase()}</div>`;
-    clearCPT();
     const toolb = document.getElementById("toolbar");
     toolb.insertAdjacentHTML("beforeend", el);
     for (let elem in nodes) {

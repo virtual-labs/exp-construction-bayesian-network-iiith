@@ -2,12 +2,29 @@ import { clearResult, nodes} from "./node.js";
 
 "use strict";
 
+function errorMessageGeneral(msg){
+    var alertmodal = document.getElementById("alertmodal1");
+    alertmodal.innerText = "";
+    alertmodal.style.display = "none";
+    var modal = document.getElementById("myModal");
+    modal.style.display = "block";
+    window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+    }
+    alertmodal = document.getElementById("alertmodal2");
+    alertmodal.innerText = msg;
+    alertmodal.style.display = "block";
+    console.log("Failed");
+}
+
 function checkConstraints(adjlist, key, values, isCorrect, splFlag = 0){
     if(isCorrect == false)return isCorrect;
     key = key.toUpperCase();
     if(splFlag == 1){
         if((key in adjlist)){
-            alert(`${key} is redundant variable shoudnt be there in the playground, please check hints and recheck your answers`);
+            errorMessageGeneral(`${key} is redundant variable shoudnt be there in the playground, please check hints and recheck your answers`);
             return false;
         }
         else return isCorrect;
@@ -16,7 +33,7 @@ function checkConstraints(adjlist, key, values, isCorrect, splFlag = 0){
     if(!(key in adjlist)){
         console.log(key);
         console.log(adjlist);
-        alert(`${key} is not connected, please check hints`);
+        errorMessageGeneral(`${key} is not connected, please check hints`);
         return false;
     }
     if(adjlist[key].parents.length == values.length){
@@ -27,16 +44,34 @@ function checkConstraints(adjlist, key, values, isCorrect, splFlag = 0){
         }
         for(let i of values){
             if(temp.includes(i)===false){
-                alert(`In the current scenario, ${i} is not a parent of ${key}, please check hints and recheck your answer`);
+                errorMessageGeneral(`In the current scenario, ${i} is not a parent of ${key}, please check hints and recheck your answer`);
                 return false;
             }
         }
     }   
     else{
-        alert(`Number of parents for ${key} doesnt match please check hints`);
+        errorMessageGeneral(`Number of parents for ${key} doesnt match please check hints`);
         return false;
     } 
     return isCorrect;
+}
+
+function successMessageGeneral(){
+    var alertmodal = document.getElementById("alertmodal2");
+            alertmodal.innerText = "";
+            alertmodal.style.display = "none";
+
+            var modal = document.getElementById("myModal");
+            modal.style.display = "block";
+            alertmodal = document.getElementById("alertmodal1");
+            alertmodal.innerText = "The Bayesian Network is connected properly";
+            alertmodal.style.display = "block";
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                  modal.style.display = "none";
+                }
+            }
+            console.log("Sucesss");
 }
 
 export function domainValidator1() {
@@ -48,38 +83,45 @@ export function domainValidator1() {
     for(let [key, value] of Object.entries(node_list)){
         adjlist[value.name] = value;
     }
-    isCorrect = checkConstraints(adjlist, "alarm", ["earthquake", "burglary"], isCorrect);
-    isCorrect = checkConstraints(adjlist, "earthquake", [], isCorrect);
-    isCorrect = checkConstraints(adjlist, "burglary", [], isCorrect);
-    isCorrect = checkConstraints(adjlist, "johncalls", ["alarm"], isCorrect);
-    isCorrect = checkConstraints(adjlist, "marycalls", ["alarm"], isCorrect);
-    isCorrect = checkConstraints(adjlist, "india", [], isCorrect, 1);
-    isCorrect = checkConstraints(adjlist, "olympics", [], isCorrect, 1);
+    let edges = {"alarm": ["earthquake", "burglary"], "earthquake": [], "burglary": [], "johncalls": ["alarm"], "marycalls": ["alarm"] };
+    let spcedges = {"india": [], "olympics": []};
+    for(let [key, value] of Object.entries(edges) ){
+        isCorrect = checkConstraints(adjlist, key, value, isCorrect);
+    } 
+    for(let [key, value] of Object.entries(spcedges) ){
+        isCorrect = checkConstraints(adjlist, key, value, isCorrect, 1);
+    } 
+    
+    // isCorrect = checkConstraints(adjlist, "alarm", ["earthquake", "burglary"], isCorrect);
+    // isCorrect = checkConstraints(adjlist, "earthquake", [], isCorrect);
+    // isCorrect = checkConstraints(adjlist, "burglary", [], isCorrect);
+    // isCorrect = checkConstraints(adjlist, "johncalls", ["alarm"], isCorrect);
+    // isCorrect = checkConstraints(adjlist, "marycalls", ["alarm"], isCorrect);
+    // isCorrect = checkConstraints(adjlist, "india", [], isCorrect, 1);
+    // isCorrect = checkConstraints(adjlist, "olympics", [], isCorrect, 1);
     
     const result = document.getElementById("result");
 
     if (isCorrect) {
+        successMessageGeneral();
         result.innerHTML = "<span>&#10003;</span> Success";
         result.className = "success-message";
-        for(let [key, value] of Object.entries(adjlist)){
-            const ele = document.getElementById(value.id);
-            ele.onclick = function(event) {addCPT(event);};
-        }
-        setTimeout(function () {result.innerHTML = "";}, 3000);
-    } else {
-        result.innerHTML = "<span>&#10007;</span> Fail";
-        result.className = "failure-message";
-        // for(let [key, value] of Object.entries(adjlist)){
-        //     const ele = document.getElementById(value.id);
-        //     ele.onclick = function(event) {};
-        // }
+
         for(let [key, value] of Object.entries(adjlist)){
             const ele = document.getElementById(value.id);
             ele.onclick = function(event) {addCPT(event);};
         }
         const elel  = document.getElementById("finalbutton");
         elel.innerText = "Check";
-        elel.onclick = function(){checkCPT();}; 
+        elel.onclick = function(){checkCPT();};
+        setTimeout(function () {result.innerHTML = "";}, 3000);
+    } else {
+        result.innerHTML = "<span>&#10007;</span> Fail";
+        result.className = "failure-message";
+        for(let [key, value] of Object.entries(adjlist)){
+            const ele = document.getElementById(value.id);
+            ele.onclick = function(event) {};
+        }
         setTimeout(function () {result.innerHTML = "";}, 3000);
     }
 }
