@@ -196,6 +196,9 @@ function errorMessageCPT(){
 function checkCPT(){
     if(window.currentTab == "Domain1" ){
         const el2 = document.getElementById("op2");
+        if(el2 == null){
+            continue;
+        }
         const vl2 = parseFloat(el2.innerText);
         console.log(vl2);
         if(vl2 == 0.71){
@@ -207,6 +210,9 @@ function checkCPT(){
     }
     else if(window.currentTab == "Domain2"){
         const el = document.getElementById("op3");
+        if(el == null){
+            continue;
+        }
         const vl = parseFloat(el.innerText);
         // console.log(vl2);
         if(vl == 0.4){
@@ -218,6 +224,9 @@ function checkCPT(){
     }
     else if(window.currentTab == "Domain3"){
         const el = document.getElementById("op4");
+        if(el == null){
+            continue;
+        }
         const vl = parseFloat(el.innerText);
         // console.log(vl2);
         if(vl == 0.9){
@@ -229,6 +238,9 @@ function checkCPT(){
     }
     else if(window.currentTab == "Domain4"){
         const el = document.getElementById("op5");
+        if(el == null){
+            continue;
+        }
         const vl = parseFloat(el.innerText);
         // console.log(vl2);
         if(vl == 0.95){
@@ -240,6 +252,9 @@ function checkCPT(){
     }
     else if(window.currentTab == "Domain5"){
         const el = document.getElementById("op6");
+        if(el == null){
+            continue;
+        }
         const ell = document.getElementById("op7");
         const vl = parseFloat(el.innerText);
         const vll = parseFloat(ell.innerText);
