@@ -1,1 +1,1 @@
-## Construction of Bayesian Network
+Construction of Bayesian Network
