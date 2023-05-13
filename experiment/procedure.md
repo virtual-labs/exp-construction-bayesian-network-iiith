@@ -1,4 +1,4 @@
-### Procedure
+
 ## Step 1:
 Understand the Problem statement provided, understand the relations between different variables.
 ## Step 2:
