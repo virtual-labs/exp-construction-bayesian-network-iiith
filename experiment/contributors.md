@@ -8,4 +8,4 @@
 | SNo. | Name          | Email                           | Institute                                          | ID  |
 |------|---------------|---------------------------------|-----------------------------------------------------|-----|
 | 1    | Trinadh Venkata | trinadh.venkata@students.iiit.ac.in | International Institute of Information Technology Hyderabad | 1   |
-
+| 2    | Dhillu Thambi | dhillu.thambi@research.iiit.ac.in  | International Institute of Information Technology Hyderabad | 1   |
