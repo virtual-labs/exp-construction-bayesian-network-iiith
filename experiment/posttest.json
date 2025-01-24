@@ -41,6 +41,43 @@
 
       "correctAnswer": "b",
       "difficulty": "beginner"
+    },
+    {
+      "question": "How many cycles does Bayesian Network have?",
+      "answers": {
+        "a": "0",
+        "b": "1",
+        "c": "2",
+        "d": "Depends"
+
+      },
+
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "If Pr(X=T/x1,x2) = 0.2 then what is value of Pr(X=F/x1,x2)?",
+      "answers": {
+        "a": "0",
+        "b": "1.2",
+        "c": "0.2",
+        "d": "0.8"
+
+      },
+
+      "correctAnswer": "d",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "If x1 is the only parent of y in Bayesian network, what can you say about P(y/x1, x2, x3)",
+      "answers": {
+        "a": "P(x1/y)",
+        "b": "P(y/x1)",
+        "c": "P(y/x2,x3)",
+        "d": "P(x2,x3/y)"
+      },
+      "correctAnswer": "b",
+      "difficulty": "advanced"
     }
   ]
 }
