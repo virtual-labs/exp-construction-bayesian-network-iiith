@@ -1,0 +1,11 @@
+{
+  _: [],
+  f: [
+    '/home/runner/work/exp-construction-bayesian-network-iiith/exp-construction-bayesian-network-iiith/experiment-descriptor.json'
+  ],
+  files: [
+    '/home/runner/work/exp-construction-bayesian-network-iiith/exp-construction-bayesian-network-iiith/experiment-descriptor.json'
+  ],
+  '$0': 'validate'
+}
+Validated true
